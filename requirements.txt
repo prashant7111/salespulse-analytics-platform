@@ -1,0 +1,6 @@
+Flask>=3.0,<4
+pandas>=2.0,<3
+openpyxl>=3.1,<4
+xlrd>=2.0,<3
+pyarrow>=15,<22
+gunicorn>=22,<24; platform_system != "Windows"

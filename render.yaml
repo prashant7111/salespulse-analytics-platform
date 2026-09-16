@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: salespulse
+    runtime: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn --bind 0.0.0.0:$PORT --workers 2 --threads 4 --timeout 120 wsgi:app
+    envVars:
+      - key: SALESPULSE_SECRET_KEY
+        generateValue: true
+      - key: SALESPULSE_COOKIE_SECURE
+        value: "1"
+      - key: SALESPULSE_PERSIST_LOCAL_SECRET
+        value: "0"
