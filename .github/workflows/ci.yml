@@ -1,0 +1,17 @@
+name: SalesPulse CI
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install -r requirements.txt
+      - run: python -m compileall -q .
+      - run: python -c "from server import app; c=app.test_client(); assert c.get('/api/health').status_code == 200"
