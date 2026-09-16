@@ -1,0 +1,20 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+env/
+.env
+
+# Runtime / local state
+data/salespulse.db
+data/.session_secret
+data/uploads/*
+!data/uploads/.gitkeep
+*.log
+
+# OS / IDE
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
